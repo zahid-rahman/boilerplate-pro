@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+    advising-pro-web:
+        container_name: next-app
+        image: next-app
+        build: .
+        restart: always
+        ports:
+            - 4000:3000
