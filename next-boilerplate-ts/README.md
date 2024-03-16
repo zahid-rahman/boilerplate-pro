@@ -1,4 +1,4 @@
-## Next Boilerplate (typescript)
+## Next Boilerplate with Antd (typescript)
 
 Use node version 20.11.1
 
