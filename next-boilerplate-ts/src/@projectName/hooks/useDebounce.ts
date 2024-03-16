@@ -1,17 +1,23 @@
-import React from 'react';
+'use client';
+import { useEffect, useState } from 'react';
 
-export const useDebounce = (value: string, delay: number) => {
-	const [debouncedValue, setDebouncedValue] = React.useState(value);
+interface IDebounce {
+	searchQuery: string;
+	delay: number;
+}
 
-	React.useEffect(() => {
+export const useDebounce = ({ searchQuery, delay }: IDebounce) => {
+	const [debouncedValue, setDebouncedValue] = useState<string>(searchQuery);
+
+	useEffect(() => {
 		const handler = setTimeout(() => {
-			setDebouncedValue(value);
+			setDebouncedValue(searchQuery);
 		}, delay);
 
 		return () => {
 			clearTimeout(handler);
 		};
-	}, [value]);
+	}, [searchQuery, delay]);
 
 	return debouncedValue;
 };
